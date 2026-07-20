@@ -64,14 +64,41 @@ direnv allow
 
 > **Note**: The first time you run this, Nix will download PHP, MariaDB, and other required packages. This may take a few minutes.
 
-### Step 3: Install phpMyAdmin (One-Time Setup)
+### Step 3: Download & Set Up phpMyAdmin (One-Time Setup)
 
-To manage your database visually in your browser, extract phpMyAdmin into the project directory:
+To visually manage your database in a browser, download and extract phpMyAdmin directly into your project root directory.
+
+#### Option A: Direct Download via Web Browser
+
+- Go to the official download page: **[phpmyadmin.net/downloads/](https://www.phpmyadmin.net/downloads/)**
+
+- Download the latest **`phpMyAdmin-x.x.x-all-languages.zip`** package and save it into your `tmp/` folder (or project root).
+
+OR
+
+#### Option B: Download phpMyAdmin zip to `tmp/`
 
 ```Bash
+cd ~/src/car-service-app
+mkdir -p tmp
+curl -o tmp/phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.zip
+```
+
+### Step 4: Extract the `.zip` file into a folder named `phpmyadmin` in your project root:
+
+Create target directory
+
+```Bash
+cd ~/src/car-service-app
 mkdir -p phpmyadmin
-tar -xzf $(nix-build '<nixpkgs>' -A phpMyAdmin)/share/phpMyAdmin/*.tar.gz -C phpmyadmin --strip-components=1
-``````
+```
+
+Extract and strip the top-level directory structure
+
+```Bash
+cd ~/src/car-service-app
+unzip -j tmp/phpmyadmin.zip -d phpmyadmin/
+```
 
 Next, enable passwordless login for local testing by creating `phpmyadmin/config.inc.php`:
 
@@ -85,21 +112,21 @@ $cfg['Servers'][$i]['host'] = '127.0.0.1';
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 ```
 
-### Step 4: Import Initial Database Schema
+### Step 5: Import Initial Database Schema
 
-#### 1. Open Terminal 1 and start MariaDB:
+#### 5.1 Open Terminal 1 and start MariaDB:
 
 ```Bash
 devenv up
 ```
 
-#### 2. Open Terminal 2 and start phpMyAdmin:
+#### 5.2 Open Terminal 2 and start phpMyAdmin:
 
 ```Bash
 php -S 127.0.0.1:8001 -t phpmyadmin
 ```
 
-#### 3. Open `http://localhost:8001` in your web browser.
+#### 5.3 Open `http://localhost:8001` in your web browser.
 
 Log in with:
 

@@ -28,6 +28,9 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
+
+    # Creates an initial database and user automatically on first start
+
     initialDatabases = [
       { name = "car_service_db"; }
     ];
