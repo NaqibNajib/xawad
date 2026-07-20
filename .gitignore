@@ -1,0 +1,4 @@
+tmp/
+.devenv.flake.nix
+.devenv/
+phpmyadmin/
