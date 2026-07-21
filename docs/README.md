@@ -16,17 +16,17 @@ While XAMPP is commonly used on Windows in schools, this project uses **NixOS / 
 
 Before you begin, here are definitions for terms you will see throughout this guide:
 
-- Repository (Repo): A folder where all source code and files for a project are stored and tracked using Git.
+- **Repository (Repo)**: A folder where all source code and files for a project are stored and tracked using Git.
 
-- Clone: Creating a local copy of a remote Git repository on your own computer.
+- **Clone**: Creating a local copy of a remote Git repository on your own computer.
 
-- Localhost: A standard hostname that means "this computer." It allows your computer to run web servers locally without sending requests over the Internet.
+- **Localhost**: A standard hostname that means "this computer." It allows your computer to run web servers locally without sending requests over the Internet.
 
-- Port: An internal software endpoint (like a door number on a building) that directs web traffic to a specific server program (e.g., port 8000 for your web app, port 8001 for phpMyAdmin).
+- **Port**: An internal software endpoint (like a door number on a building) that directs web traffic to a specific server program (e.g., port 8000 for your web app, port 8001 for phpMyAdmin).
 
-- Database (DB): An organized collection of structured data (like tables with rows and columns) stored electronically.
+- **Database (DB)**: An organized collection of structured data (like tables with rows and columns) stored electronically.
 
-- Prepared Statements: A secure method of executing SQL queries that prevents malicious users from manipulating database commands (preventing SQL Injection).
+- **Prepared Statements**: A secure method of executing SQL queries that prevents malicious users from manipulating database commands (preventing SQL Injection).
 
 ## Prerequisites
 
