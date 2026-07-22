@@ -24,6 +24,7 @@ let
 $i = 0; $i++;
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['host'] = '127.0.0.1';
+$cfg['Servers'][$i]['port'] = 3306;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
 EOF
   '';
@@ -64,6 +65,13 @@ in {
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
+
+    settings = {
+      mysqld = {
+        port = 3306;
+        bind-address = "127.0.0.1";
+      };
+    };
 
     # Creates an initial database automatically on first start
     initialDatabases = [
